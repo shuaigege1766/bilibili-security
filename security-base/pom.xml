@@ -20,5 +20,10 @@
             <groupId>com.xiaofu.security</groupId>
             <artifactId>security-common</artifactId>
         </dependency>
+        <!--JWT(Json Web Token)登录支持-->
+        <dependency>
+            <groupId>io.jsonwebtoken</groupId>
+            <artifactId>jjwt</artifactId>
+        </dependency>
     </dependencies>
 </project>

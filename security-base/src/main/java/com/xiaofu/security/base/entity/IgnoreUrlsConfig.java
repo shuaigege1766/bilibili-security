@@ -1,4 +1,4 @@
-package com.xiaofu.security.base.config.entity;
+package com.xiaofu.security.base.entity;
 
 import lombok.Getter;
 import lombok.Setter;

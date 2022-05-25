@@ -1,7 +1,7 @@
 package com.xiaofu.security.base.config;
 
 
-import com.xiaofu.security.base.config.entity.IgnoreUrlsConfig;
+import com.xiaofu.security.base.entity.IgnoreUrlsConfig;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.http.HttpMethod;
@@ -34,7 +34,10 @@ public class BaseSecurityConfig extends WebSecurityConfigurerAdapter {
         }
         requests
                 .antMatchers(HttpMethod.OPTIONS)
-                .permitAll()                //跨域请求放行
+                .permitAll()//跨域请求放行
+                .and()
+                .formLogin()
+                .loginPage("/admin/login")
                 .and()
                 .authorizeRequests()
                 .anyRequest()
