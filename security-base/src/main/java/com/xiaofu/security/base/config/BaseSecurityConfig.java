@@ -36,9 +36,6 @@ public class BaseSecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers(HttpMethod.OPTIONS)
                 .permitAll()//跨域请求放行
                 .and()
-                .formLogin()
-                .loginPage("/admin/login")
-                .and()
                 .authorizeRequests()
                 .anyRequest()
                 .authenticated()           //其他请求都放行

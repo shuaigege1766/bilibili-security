@@ -1,12 +1,14 @@
 package com.xiaofu.security.config;
 
 import com.xiaofu.security.base.config.BaseSecurityConfig;
-import com.xiaofu.security.service.UmsAdminService;
+import com.xiaofu.security.service.impl.MyUserDetailService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.core.userdetails.UsernameNotFoundException;
 
 /**
  * @author 17662
@@ -15,14 +17,20 @@ import org.springframework.security.core.userdetails.UserDetailsService;
 @Configuration
 public class AdminSecurityConfig extends BaseSecurityConfig {
 
+
     @Autowired
-    private UmsAdminService UmsAdminService;
+    private MyUserDetailService userDetailService;
 
     @Override
     @Bean
     public UserDetailsService userDetailsService(){
-
-        return  username -> UmsAdminService.loadUserByUsername(username);
+        UserDetailsService service = new UserDetailsService() {
+            @Override
+            public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+                return userDetailService.loadUserByUsername(username);
+            }
+        };
+        return service;
     }
 
 }

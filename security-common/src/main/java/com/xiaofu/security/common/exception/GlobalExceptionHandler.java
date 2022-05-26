@@ -1,7 +1,7 @@
 package com.xiaofu.security.common.exception;
 
 
-import com.xiaofu.security.common.api.CommonResult;
+import com.xiaofu.security.common.api.Result;
 import org.springframework.validation.BindException;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.FieldError;
@@ -19,16 +19,16 @@ public class GlobalExceptionHandler {
 
     @ResponseBody
     @ExceptionHandler(value = ApiException.class)
-    public CommonResult handle(ApiException e) {
+    public Result handle(ApiException e) {
         if (e.getErrorCode() != null) {
-            return CommonResult.failed(e.getErrorCode());
+            return Result.failed(e.getErrorCode());
         }
-        return CommonResult.failed(e.getMessage());
+        return Result.failed(e.getMessage());
     }
 
     @ResponseBody
     @ExceptionHandler(value = MethodArgumentNotValidException.class)
-    public CommonResult handleValidException(MethodArgumentNotValidException e) {
+    public Result handleValidException(MethodArgumentNotValidException e) {
         BindingResult bindingResult = e.getBindingResult();
         String message = null;
         if (bindingResult.hasErrors()) {
@@ -37,12 +37,12 @@ public class GlobalExceptionHandler {
                 message = fieldError.getField()+fieldError.getDefaultMessage();
             }
         }
-        return CommonResult.validateFailed(message);
+        return Result.validateFailed(message);
     }
 
     @ResponseBody
     @ExceptionHandler(value = BindException.class)
-    public CommonResult handleValidException(BindException e) {
+    public Result handleValidException(BindException e) {
         BindingResult bindingResult = e.getBindingResult();
         String message = null;
         if (bindingResult.hasErrors()) {
@@ -51,6 +51,6 @@ public class GlobalExceptionHandler {
                 message = fieldError.getField()+fieldError.getDefaultMessage();
             }
         }
-        return CommonResult.validateFailed(message);
+        return Result.validateFailed(message);
     }
 }

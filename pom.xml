@@ -12,6 +12,7 @@
         <module>security-common</module>
         <module>security-base</module>
         <module>security-admin</module>
+        <module>security-mbg</module>
     </modules>
 
 
@@ -88,6 +89,11 @@
                 <version>${project.version}</version>
             </dependency>
 
+            <dependency>
+                <groupId>com.xiaofu.security</groupId>
+                <artifactId>security-mbg</artifactId>
+                <version>${project.version}</version>
+            </dependency>
         <!--Swagger-UI API文档生产工具-->
             <dependency>
                 <groupId>io.springfox</groupId>
@@ -153,14 +159,4 @@
         </dependencies>
     </dependencyManagement>
 
-    <build>
-        <pluginManagement>
-            <plugins>
-                <plugin>
-                    <groupId>org.springframework.boot</groupId>
-                    <artifactId>spring-boot-maven-plugin</artifactId>
-                </plugin>
-            </plugins>
-        </pluginManagement>
-    </build>
 </project>

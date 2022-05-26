@@ -1,11 +1,14 @@
 package com.xiaofu.security.entity;
 
+import com.xiaofu.security.mbg.ums.entity.UmsAdmin;
+import com.xiaofu.security.mbg.ums.entity.UmsResource;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.Collection;
 import java.util.List;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 /**
@@ -21,9 +24,9 @@ public class AdminUserDetails implements UserDetails {
     /**
      * 拥有的资源列表
      */
-    private List<UmsResource> resourceList;
+    private Set<UmsResource> resourceList;
 
-    public AdminUserDetails(UmsAdmin umsAdmin, List<UmsResource> resourceList) {
+    public AdminUserDetails(UmsAdmin umsAdmin, Set<UmsResource> resourceList) {
         this.umsAdmin = umsAdmin;
         this.resourceList = resourceList;
     }

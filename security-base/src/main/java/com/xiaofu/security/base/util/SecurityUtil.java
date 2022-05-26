@@ -14,15 +14,6 @@ public class SecurityUtil {
         Object principal = authentication.getPrincipal();
         if (principal instanceof UsernamePasswordAuthenticationToken) {
             UserDetails userDetails = (UserDetails) principal;
-
-        }
-        return null;
-    }
-
-    public static Long getUserId(){
-        UserDetails userDetails = getUserDetails();
-        if (userDetails != null) {
-
         }
         return null;
     }
