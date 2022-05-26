@@ -1,7 +1,6 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.xiaofu.security.mbg.ums.mapper.UmsResourceMapper">
-
 
 
     <select id="getResourceByUserId" resultType="com.xiaofu.security.mbg.ums.entity.UmsResource">
@@ -16,7 +15,7 @@
             from ums_role_resource_relation t0
             inner join ums_admin_role_relation t1 on t1.role_id = t0.role_id
             inner join ums_admin t2 on t1.admin_id = t2.id
-						and t1.admin_id = #{id}
+						and t2.id = #{id}
 
         )
     </select>

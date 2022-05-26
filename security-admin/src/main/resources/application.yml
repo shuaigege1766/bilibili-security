@@ -29,7 +29,7 @@ secure:
       - /webjars/springfox-swagger-ui/**
       - /actuator/**
       - /druid/**
-      - /admin/login
+      - /security/login
       - /admin/register
       - /admin/info
       - /admin/logout
@@ -37,5 +37,5 @@ secure:
 
 
 mybatis-plus:
-  mapper-locations: com.xiaofu.security.mbg.*.mapper.xml
+  mapper-locations: classpath*:mapper/*/*.xml
 

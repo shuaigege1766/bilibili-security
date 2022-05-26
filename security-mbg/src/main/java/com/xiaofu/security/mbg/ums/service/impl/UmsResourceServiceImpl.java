@@ -4,6 +4,7 @@ import com.xiaofu.security.mbg.ums.entity.UmsResource;
 import com.xiaofu.security.mbg.ums.mapper.UmsResourceMapper;
 import com.xiaofu.security.mbg.ums.service.UmsResourceService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.Set;
@@ -19,9 +20,11 @@ import java.util.Set;
 @Service
 public class UmsResourceServiceImpl extends ServiceImpl<UmsResourceMapper, UmsResource> implements UmsResourceService {
 
+    @Autowired
+    private UmsResourceMapper umsResourceMapper;
 
     @Override
     public Set<UmsResource> getResourceByUserId(long id) {
-        return  this.baseMapper.getResourceByUserId(id);
+        return  umsResourceMapper.getResourceByUserId(id);
     }
 }

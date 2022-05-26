@@ -70,7 +70,7 @@ public class MybatisGen {
         // 包配置
         PackageConfig pc = new PackageConfig();
         //pc.setModuleName(scanner("模块名"));
-        pc.setParent("com.xiaofu.security.mbg.ums");
+        pc.setParent("mapper/ums");
         pc.setController("controller");
         pc.setService("service");
         pc.setServiceImpl("service.impl");

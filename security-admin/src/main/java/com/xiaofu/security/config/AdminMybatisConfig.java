@@ -7,7 +7,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @Configuration
 @EnableTransactionManagement
-@MapperScan("com.xiaofu.security.*.*.mapper")
+@MapperScan("com.xiaofu.security.**.mapper")
 public class AdminMybatisConfig {
 
 }

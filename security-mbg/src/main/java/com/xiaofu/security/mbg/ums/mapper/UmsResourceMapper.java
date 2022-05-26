@@ -2,6 +2,7 @@ package com.xiaofu.security.mbg.ums.mapper;
 
 import com.xiaofu.security.mbg.ums.entity.UmsResource;
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.Set;
@@ -14,6 +15,7 @@ import java.util.Set;
  * @author ${author}
  * @since 2022-05-26
  */
+@Mapper
 public interface UmsResourceMapper extends BaseMapper<UmsResource> {
 
     Set<UmsResource> getResourceByUserId(@Param("id") long id);

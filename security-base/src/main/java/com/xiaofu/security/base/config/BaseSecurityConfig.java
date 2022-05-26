@@ -12,6 +12,7 @@ import org.springframework.security.config.annotation.web.configurers.Expression
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
 
 import java.util.List;
 
@@ -23,6 +24,8 @@ public class BaseSecurityConfig extends WebSecurityConfigurerAdapter {
     @Autowired(required = true)
     private UserDetailsService userDetailsService;
 
+    @Autowired(required = true)
+    private AuthenticationSuccessHandler authenticationSuccessHandler;
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
@@ -35,6 +38,9 @@ public class BaseSecurityConfig extends WebSecurityConfigurerAdapter {
         requests
                 .antMatchers(HttpMethod.OPTIONS)
                 .permitAll()//跨域请求放行
+                .and()
+                .formLogin()
+                .successHandler(authenticationSuccessHandler)
                 .and()
                 .authorizeRequests()
                 .anyRequest()

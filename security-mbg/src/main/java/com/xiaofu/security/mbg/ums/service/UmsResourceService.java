@@ -2,6 +2,7 @@ package com.xiaofu.security.mbg.ums.service;
 
 import com.xiaofu.security.mbg.ums.entity.UmsResource;
 import com.baomidou.mybatisplus.extension.service.IService;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.Set;
 
@@ -15,5 +16,5 @@ import java.util.Set;
  */
 public interface UmsResourceService extends IService<UmsResource> {
 
-    Set<UmsResource> getResourceByUserId(long id);
+    Set<UmsResource> getResourceByUserId(@Param("id") long id);
 }
